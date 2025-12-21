@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Stock</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/stock.css">
+    <!-- Include security and auth utils first -->
+    <script src="/js/utils/security-utils.js"></script>
+    <script src="/js/utils/auth-utils.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <h1>Total Stock</h1>
+    <div id="stock-search-container">
+        <h3>Search Materials</h3>
+        <form id="stock-search">
+            <input type="text" name="search" id="search" placeholder="Search by Material Name" autocomplete="off">
+        </form>
+    </div>
+    <div id="stock">
+        <h3>Total Stock Report</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Material Name</th>
+                    <th>Received QTY</th>
+                    <th>Consumption QTY</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- stock data from database -->
+            </tbody>
+        </table>
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="/js/utils/header.js"></script>
+    <script src="/js/utils/footer.js"></script>
+    <script src="/js/stock.js"></script>
+</body>
+</html>

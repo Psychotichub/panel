@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User - Manager Dashboard</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <link rel="stylesheet" href="/css/manager.css">
+</head>
+<body>
+    <div class="manager-dashboard">
+        <!-- Header -->
+        <header class="manager-header">
+            <div class="manager-header-content">
+                <h1><i class="fas fa-user-plus"></i> Create New User</h1>
+                <div class="manager-user-info">
+                    <span id="currentUser">Loading...</span>
+                    <button id="backBtn" class="manager-logout-btn">
+                        <i class="fas fa-arrow-left"></i> Back to Dashboard
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="manager-panel">
+            <div class="manager-panel-header">
+                <h2><i class="fas fa-user-plus"></i> Create New User Account</h2>
+                <p>Managers can create new managers, admins, and users</p>
+            </div>
+
+            <div class="manager-controls">
+                <div id="error-message" class="message error-message" aria-live="polite"></div>
+                <div id="success-message" class="message success-message" aria-live="polite"></div>
+                
+                <form id="createUserForm">
+                    <div class="manager-control-group">
+                        <label for="username">
+                            <i class="fas fa-user"></i> Username
+                        </label>
+                        <input type="text" class="form-control" id="username" required>
+                    </div>
+
+                    <div class="manager-control-group">
+                        <label for="password">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <input type="password" class="form-control" id="password" required>
+                    </div>
+
+                    <div class="manager-control-group">
+                        <label for="confirmPassword">
+                            <i class="fas fa-lock"></i> Confirm Password
+                        </label>
+                        <input type="password" class="form-control" id="confirmPassword" required>
+                    </div>
+
+                    <div class="manager-control-group">
+                        <label for="role">
+                            <i class="fas fa-user-tag"></i> Role
+                        </label>
+                        <select class="form-control" id="role" required>
+                            <option value="">Select Role</option>
+                            <option value="user">User</option>
+                            <option value="manager">Manager</option>
+                            <option value="admin">Admin</option>
+                        </select>
+                    </div>
+
+                    <div class="manager-control-group">
+                        <label for="site">
+                            <i class="fas fa-building"></i> Site
+                        </label>
+                        <input type="text" class="form-control" id="site" required>
+                    </div>
+
+                    <div class="manager-control-group">
+                        <label for="company">
+                            <i class="fas fa-industry"></i> Company
+                        </label>
+                        <input type="text" class="form-control" id="company" required>
+                    </div>
+
+                    <div class="manager-control-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i> Email (Optional)
+                        </label>
+                        <input type="email" class="form-control" id="email">
+                    </div>
+
+                    <div class="manager-action-buttons">
+                        <button type="submit" class="manager-btn manager-btn-success">
+                            <i class="fas fa-user-plus"></i> Create User
+                        </button>
+                        <button type="button" id="clearBtn" class="manager-btn manager-btn-secondary">
+                            <i class="fas fa-trash"></i> Clear Form
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Recent Users Table -->
+            <div class="manager-results">
+                <h3><i class="fas fa-users"></i> Recently Created Users</h3>
+                <div class="table-container">
+                    <table id="recentUsersTable" class="manager-table">
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Role</th>
+                                <th>Site</th>
+                                <th>Company</th>
+                                <th>Created</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentUsersTableBody">
+                            <tr>
+                                <td colspan="5" class="no-data">
+                                    No users created yet.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/manager/create-user.js"></script>
+</body>
+</html> 

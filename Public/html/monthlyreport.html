@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Report</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/monthlyreport.css">
+    <!-- Include security and auth utils first -->
+    <script src="/js/utils/security-utils.js"></script>
+    <script src="/js/utils/auth-utils.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <div id="page">
+    <h1>Monthly Report</h1>
+    <div id="date-range" class="clickable-date-range"></div>
+    <div id="monthly-report" class="hidden">
+        <div id="date"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Material Name</th>
+                    <th>Quantity</th>
+                    <th>Material Price</th>
+                    <th>Labor Price</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Data will be populated dynamically -->
+            </tbody>
+        </table>
+    </div>
+    <button type="button" id="print">Print</button>
+    <button type="button" id="export">Export in Excel</button>
+    </div>
+    <div id ="footer-placeholder"></div>
+    <script src="/js/utils/header.js"></script>
+    <script src="/js/utils/footer.js"></script>
+    <script src="/js/xlsx.full.min.js"></script>
+    <script src="/js/monthlyreport.js"></script>
+</body>
+</html>

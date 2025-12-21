@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Materials</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/materials.css">
+    <!-- Include security utils first -->
+    <script src="/js/utils/security-utils.js"></script>
+    <script src="/js/utils/auth-utils.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <h1>Material Data Entry</h1>
+    <div id="content">
+        <!-- Material Data Entry Table -->
+        <div id="material-form">
+            <table>
+                <tr>
+                    <td>
+                        <div>
+                        <input type="text" name="material-name" id="material-name" placeholder="Enter material name" autocomplete="on">
+                        <div id="material-dropdown" class="dropdown hidden"></div>
+                        <datalist id="material-list">
+                            <!-- Options will be populated dynamically -->
+                        </datalist>
+                    </td>
+                    <td>
+                        <select id="unit" title="Unit">
+                            <option value="m">Meter</option>
+                            <option value="pcs">Pcs</option>
+                        </select>
+                    </td>
+                    <td><input type="number" id="material-price" name="material-price" placeholder="Material Price  euro/unit" min="0"></td>
+                    <td><input type="number" id="labor-price" name="labor-price" placeholder="Labour Price euro/unit" min="0"></td>
+                    </div>
+                </tr>
+            </table>
+            <button type="button" id="submit-btn">Submit</button>
+        </div>
+
+        <h3>Search Material:</h3>
+        <form id="search-form">
+            <input type="text" name="search-material-name" id="search-material-name" placeholder="Enter material name to search" autocomplete="off">
+            <div id="search-dropdown"></div>
+        </form>
+
+        <!-- Submitted Data Table -->
+        <h3>Submitted Data:</h3>
+        <table id="submitted-table" class="hidden">
+            <thead>
+                <tr>
+                    <th>Material Name</th>
+                    <th>Unit</th>
+                    <th>Material Price</th>
+                    <th>Labor Price</th>
+                    <th>Total Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="submitted-table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="/js/utils/header.js"></script>
+    <script src="/js/utils/footer.js"></script>
+    <script src="/js/material-submit.js"></script>
+</body>
+</html>

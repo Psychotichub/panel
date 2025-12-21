@@ -1,0 +1,1287 @@
+/* Manager-specific styles */
+
+/* Manager Login Page Styles */
+.manager-login-container {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Manager Login (HTML-compatible selectors used by Public/html/manager-login.html) */
+/* Page background only on pages that contain the login container */
+body:has(.login-container) {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+}
+
+/* Centered card */
+.login-container {
+    background: rgba(255, 255, 255, 0.96);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px 32px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    width: 100%;
+    max-width: 420px;
+    margin: 6vh auto;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.login-header h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin: 0 0 8px;
+    font-weight: 800;
+}
+
+.login-header p {
+    color: #7f8c8d;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Form styling */
+.login-form {
+    display: grid;
+    gap: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.25s ease;
+    background: #f8f9fa;
+    color: #2c3e50;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.12);
+}
+
+/* Submit button */
+.login-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.35);
+}
+
+.login-btn:active {
+    transform: translateY(0);
+}
+
+/* Footer */
+.login-footer {
+    text-align: center;
+    margin-top: 18px;
+    padding-top: 16px;
+    border-top: 1px solid #eef2f5;
+}
+
+.back-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.back-link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* Messages */
+.message {
+    padding: 12px 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    margin-top: 12px;
+}
+
+.message.success {
+    display: block;
+    background: #e8f7ef;
+    color: #1e7e34;
+    border: 1px solid #c7eed8;
+}
+
+.message.error {
+    display: block;
+    background: #fdecea;
+    color: #b1232a;
+    border: 1px solid #f5c6cb;
+}
+
+/* Ensure info messages are clearly visible */
+.message.info {
+    display: block;
+    background: #f1f5f9; /* light neutral */
+    color: #000; /* black text */
+    border: 1px solid #e2e8f0;
+}
+
+/* Label icons spacing */
+.login-header i,
+.form-group label i {
+    margin-right: 8px;
+    color: #667eea;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .login-container {
+        padding: 28px 22px;
+        margin: 4vh 12px;
+    }
+    .login-header h1 {
+        font-size: 1.6rem;
+    }
+}
+
+/* Center the card using the existing .container wrapper on the login page */
+body .container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.manager-login-form {
+    background: rgba(255, 255, 255, 0.95);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.manager-login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.manager-login-header h1 {
+    color: #2c3e50;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.manager-login-header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.manager-form-group {
+    margin-bottom: 25px;
+}
+
+.manager-form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.manager-form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e1e8ed;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+.manager-form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.manager-login-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.manager-login-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.manager-login-footer {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #e1e8ed;
+}
+
+.manager-back-link {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.manager-back-link:hover {
+    color: #764ba2;
+}
+
+/* Manager Dashboard Styles */
+.manager-dashboard {
+    background: #f8f9fa;
+    min-height: 100vh;
+}
+
+.manager-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.manager-header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.manager-header h1 {
+    font-size: 2rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.manager-user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* User chip (avatar + name + role badge) */
+.manager-user-info #currentUser {
+    display: flex;
+}
+
+.user-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-radius: 9999px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
+
+.user-avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #4f46e5;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+}
+
+.user-name {
+    font-weight: 700;
+}
+
+.role-badge {
+    padding: 2px 8px;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: capitalize;
+    background: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.role-badge.admin { background: #f59e0b; color: #111827; border-color: transparent; }
+.role-badge.manager { background: #10b981; color: #052e16; border-color: transparent; }
+.role-badge.user { background: #60a5fa; color: #0c4a6e; border-color: transparent; }
+
+.manager-header-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.manager-header-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+.manager-logout-btn {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.manager-logout-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-1px);
+}
+
+/* Manager Panel Styles */
+.manager-panel {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.manager-panel-header {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    text-align: center;
+}
+/* Elevation hover for cards */
+.manager-results:hover,
+.manager-panel-header:hover {
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.2s ease;
+}
+
+.manager-panel-header h2 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.manager-panel-header p {
+    color: #7f8c8d;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* Manager Controls */
+.manager-controls {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    /* Compact inline layout for controls */
+    display: grid;
+    grid-template-columns: repeat(4, minmax(160px, 1fr));
+    gap: 12px 16px;
+    align-items: end;
+}
+
+/* Preset controls row (replacing inline styles) */
+/* Preset controls removed */
+
+.manager-control-group {
+    margin-bottom: 0;
+}
+
+.manager-control-group label {
+    display: block;
+    margin-bottom: 6px;
+    color: #2c3e50;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.manager-control-group select,
+.manager-control-group input {
+    width: 100%;
+    padding: 6px 8px;
+    border: 2px solid #e1e8ed;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: #f8f9fa;
+}
+
+/* Preset controls layout improvements */
+.manager-controls .manager-control-group input#presetName::placeholder {
+    color: #9aa5b1;
+}
+
+.manager-control-group select:focus,
+.manager-control-group input:focus {
+    outline: none;
+    border-color: #667eea;
+    background: #ffffff;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Responsive adjustments for control row */
+@media (max-width: 992px) {
+    .manager-controls {
+        grid-template-columns: repeat(2, minmax(160px, 1fr));
+    }
+}
+
+@media (max-width: 576px) {
+    .manager-controls {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Manager Action Buttons */
+.manager-action-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.manager-btn {
+    padding: 8px 14px;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.manager-btn:focus-visible,
+.manager-header-btn:focus-visible,
+.manager-logout-btn:focus-visible {
+    outline: 3px solid rgba(102, 126, 234, 0.35);
+    outline-offset: 2px;
+}
+
+/* Skip to content link */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+.skip-link:focus {
+    left: 12px;
+    top: 12px;
+    width: auto;
+    height: auto;
+    background: #111827;
+    color: #ffffff;
+    padding: 10px 14px;
+    border-radius: 8px;
+    z-index: 2000;
+}
+
+/* Visible focus ring for interactive elements inside dashboard */
+.manager-panel a:focus-visible,
+.manager-panel button:focus-visible,
+.manager-panel select:focus-visible,
+.manager-panel input:focus-visible,
+.manager-panel [tabindex]:focus-visible {
+    outline: 3px solid #60a5fa;
+    outline-offset: 2px;
+}
+
+.manager-btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.manager-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.manager-btn-success {
+    background: linear-gradient(135deg, #56ab2f 0%, #a8e6cf 100%);
+    color: white;
+}
+
+.manager-btn-success:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(86, 171, 47, 0.3);
+}
+
+.manager-btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.manager-btn-secondary:hover {
+    background: #5a6268;
+    transform: translateY(-2px);
+}
+
+.manager-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Manager Statistics */
+.manager-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.manager-stat-card {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.manager-stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.manager-stat-icon {
+    font-size: 1.2rem;
+    margin-bottom: 6px;
+    color: #667eea;
+}
+
+.manager-stat-number {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 2px;
+}
+
+.manager-stat-label {
+    color: #7f8c8d;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+
+/* Manager Results Table */
+.manager-results {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.manager-results h3 {
+    color: #2c3e50;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.manager-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.table-container {
+    max-height: 60vh;
+    overflow: auto;
+    border: 1px solid #eef2f5;
+    border-radius: 12px;
+}
+.manager-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background: #f8f9fa;
+}
+
+.manager-table th {
+    background: #f8f9fa;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    color: #2c3e50;
+    border-bottom: 2px solid #e1e8ed;
+}
+
+.manager-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e1e8ed;
+    color: #2c3e50;
+}
+
+.manager-table tr:hover {
+    background: #f8f9fa;
+}
+.manager-table tbody tr:nth-child(odd) {
+    background: #fafbfc;
+}
+
+.manager-table .no-data {
+    text-align: center;
+    color: #000;
+    font-style: italic;
+    padding: 40px;
+}
+
+/* Charts */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 20px;
+    margin-top: 10px;
+}
+
+/* Manager Materials Popup Styles */
+body.manager-materials {
+    font-family: Arial, sans-serif;
+    margin: 16px;
+    color: #000;
+    background-color: transparent;
+}
+.materials-title {
+    margin: 0 0 12px;
+    color: #000;
+}
+.materials-meta {
+    margin: 0 0 16px;
+    color: #000;
+}
+.materials-filters {
+    margin: 8px 0 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+.materials-filters label {
+    font-size: 14px;
+    color: #333;
+}
+.materials-filters select {
+    padding: 6px 8px;
+}
+.materials-table-container {
+    max-height: 70vh;
+    overflow: auto;
+    border: 1px solid #e2e8f0; /* match materials.css border */
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+.materials-table {
+    width: 100%;
+    border-collapse: separate; /* match materials.css */
+    border-spacing: 0;          /* match materials.css */
+    background: #f9f9f9;       /* match materials.css */
+}
+.materials-table thead {
+    background-color: #003366; /* dark header like materials.css */
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.materials-table th,
+.materials-table td {
+    padding: 12px 15px;         /* match materials.css */
+    text-align: left;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+.materials-table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: #003366;  /* ensure sticky keeps header color */
+}
+.materials-table tbody tr:nth-child(even) {
+    background-color: #f1f6fb;  /* zebra striping like materials.css */
+}
+.materials-table tbody tr:hover {
+    background-color: #e6f7ff;  /* hover like materials.css */
+    transition: background-color 0.3s ease;
+}
+.materials-table td:first-child {
+    font-weight: bold;           /* emphasize material name */
+}
+.materials-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.materials-count {
+    margin: 10px 0;
+    font-weight: bold;
+    color: #000;
+}
+.materials-status {
+    margin-bottom: 8px;
+    color: #000;
+}
+
+.chart-card {
+    background: #ffffff;
+    border: 1px solid #e1e8ed;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.chart-card h4 {
+    margin: 0 0 10px;
+    color: #2c3e50;
+}
+
+/* Sortable headers */
+.manager-table th {
+    position: relative;
+    -webkit-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.manager-table th.sort-asc::after,
+.manager-table th.sort-desc::after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -5px;
+    border: 5px solid transparent;
+}
+
+.manager-table th.sort-asc::after {
+    border-bottom-color: #667eea;
+}
+
+.manager-table th.sort-desc::after {
+    border-top-color: #667eea;
+}
+
+/* Pagination */
+.manager-pagination {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 0 0;
+}
+
+.manager-page-btn {
+    background: #ffffff;
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.manager-page-btn:hover {
+    background: #f8f9fa;
+}
+.manager-page-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.manager-page-info {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.manager-page-size {
+    margin-left: auto;
+    color: #7f8c8d;
+}
+
+/* Manager Loading Spinner */
+.manager-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* hidden by default; shown via JS */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    color: white;
+}
+
+.manager-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Manager Messages */
+.manager-message {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+/* Manager Login: password toggle */
+.toggle-password {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: #667eea;
+    cursor: pointer;
+    padding: 4px;
+}
+
+.toggle-password:focus {
+    outline: none;
+}
+
+.login-form .form-group {
+    position: relative;
+}
+
+.is-loading {
+    opacity: 0.7;
+    cursor: progress;
+}
+
+.manager-message.success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.manager-message.error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.manager-message.info {
+    background: #d1ecf1;
+    color: #0c5460;
+    border: 1px solid #bee5eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .manager-login-form {
+        padding: 30px 20px;
+    }
+    
+    .manager-header-content {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .manager-action-buttons {
+        flex-direction: column;
+    }
+    
+    .manager-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .manager-table {
+        font-size: 0.9rem;
+    }
+    
+    .manager-table th,
+    .manager-table td {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .manager-login-header h1 {
+        font-size: 2rem;
+    }
+    
+    .manager-panel-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .manager-control-group select,
+    .manager-control-group input {
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+} 
+
+/* Keyboard Shortcuts Overlay */
+.shortcuts-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100;
+}
+
+.shortcuts-overlay.open {
+    display: flex;
+}
+
+.shortcuts-modal {
+    background: #ffffff;
+    width: min(720px, 92%);
+    border-radius: 14px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    border: 1px solid #e1e8ed;
+}
+
+.shortcuts-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px;
+    border-bottom: 1px solid #eef2f5;
+}
+
+.shortcuts-title {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #2c3e50;
+}
+
+.shortcuts-close-btn {
+    background: transparent;
+    border: none;
+    color: #667eea;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 6px 8px;
+}
+
+.shortcuts-close-btn:hover {
+    background: #f3f4f6;
+}
+
+.shortcuts-body {
+    padding: 16px 18px 20px;
+}
+
+.shortcuts-list {
+    margin: 0;
+    padding-left: 18px;
+    display: grid;
+    row-gap: 10px;
+}
+
+.shortcuts-list li {
+    color: #2c3e50;
+}
+
+/* KBD key visual styling */
+kbd {
+    display: inline-block;
+    min-width: 1.6em;
+    padding: 2px 6px;
+    margin: 0 2px;
+    font: 600 0.85rem/1.2 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, sans-serif;
+    color: #111827;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-bottom-width: 3px;
+    border-radius: 6px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+}
+
+/* Screen-reader only utility */
+.sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* Dark theme overrides for Manager Dashboard */
+body.theme-dark .manager-dashboard {
+    background: #0b1220;
+}
+
+body.theme-dark .manager-header {
+    background: linear-gradient(135deg, #0f172a 0%, #1f2937 100%);
+    color: #e5e7eb;
+}
+
+body.theme-dark .manager-header-btn,
+body.theme-dark .manager-logout-btn {
+    background: rgba(255, 255, 255, 0.08);
+    color: #e5e7eb;
+    border-color: rgba(255, 255, 255, 0.12);
+}
+body.theme-dark .manager-header-btn:hover,
+body.theme-dark .manager-logout-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+body.theme-dark .manager-controls,
+body.theme-dark .manager-results,
+body.theme-dark .manager-stat-card,
+body.theme-dark .chart-card {
+    background: #0f172a;
+    color: #e5e7eb;
+    border-color: #1f2937;
+}
+
+body.theme-dark .manager-controls label,
+body.theme-dark .manager-results h3,
+body.theme-dark .chart-card h4,
+body.theme-dark .materials-title,
+body.theme-dark .materials-meta {
+    color: #e5e7eb;
+}
+
+body.theme-dark .manager-control-group select,
+body.theme-dark .manager-control-group input {
+    background: #0b1220;
+    color: #e5e7eb;
+    border-color: #1f2937;
+}
+body.theme-dark .manager-control-group select:focus,
+body.theme-dark .manager-control-group input:focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+body.theme-dark .manager-table thead th {
+    background: #0b1220;
+    color: #e5e7eb;
+}
+body.theme-dark .manager-table th {
+    background: #0b1220;
+    color: #e5e7eb;
+    border-bottom-color: #1f2937;
+}
+body.theme-dark .manager-table td {
+    color: #e5e7eb;
+    border-bottom-color: #1f2937;
+}
+body.theme-dark .manager-table tr:hover {
+    background: #0f172a;
+}
+body.theme-dark .manager-table tbody tr:nth-child(odd) {
+    background: #0c1322;
+}
+body.theme-dark .manager-table .no-data {
+    color: #cbd5e1;
+}
+
+body.theme-dark .table-container {
+    border-color: #1f2937;
+}
+
+body.theme-dark .manager-pagination .manager-page-btn {
+    background: #0f172a;
+    border-color: #1f2937;
+    color: #e5e7eb;
+}
+body.theme-dark .manager-page-info {
+    color: #e5e7eb;
+}
+body.theme-dark .manager-page-size {
+    color: #94a3b8;
+}
+
+body.theme-dark .manager-stat-icon {
+    color: #6366f1;
+}
+body.theme-dark .manager-stat-number {
+    color: #e5e7eb;
+}
+body.theme-dark .manager-stat-label {
+    color: #94a3b8;
+}
+
+/* Loading overlay in dark mode */
+body.theme-dark .manager-loading {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+/* Messages */
+body.theme-dark .manager-message.success {
+    background: #0e3b23;
+    color: #d1fae5;
+    border-color: #14532d;
+}
+body.theme-dark .manager-message.error {
+    background: #3f1d1d;
+    color: #fecaca;
+    border-color: #7f1d1d;
+}
+body.theme-dark .manager-message.info {
+    background: #0b2540;
+    color: #bfdbfe;
+    border-color: #1e3a8a;
+}
+
+/* Shortcuts modal in dark */
+body.theme-dark .shortcuts-modal {
+    background: #0f172a;
+    border-color: #1f2937;
+}
+body.theme-dark .shortcuts-header {
+    border-bottom-color: #1f2937;
+}
+body.theme-dark .shortcuts-title {
+    color: #e5e7eb;
+}
+body.theme-dark .shortcuts-close-btn {
+    color: #a5b4fc;
+}
+body.theme-dark .shortcuts-close-btn:hover {
+    background: #111827;
+}
+body.theme-dark .shortcuts-list li {
+    color: #e5e7eb;
+}
+
+/* kbd in dark */
+body.theme-dark kbd {
+    color: #e5e7eb;
+    background: #111827;
+    border-color: #1f2937;
+}
+
+/* User chip in dark theme */
+body.theme-dark .user-chip {
+    background: rgba(255, 255, 255, 0.10);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+body.theme-dark .role-badge {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.25);
+    color: #e5e7eb;
+}
+
+/* Toast notifications */
+.toast-container {
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1500;
+}
+.toast {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 280px;
+    max-width: 440px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: #111827;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    animation: toast-in 200ms ease-out;
+}
+.toast .toast-text { flex: 1; }
+.toast .toast-close {
+    background: transparent;
+    border: none;
+    color: inherit;
+    font-size: 18px;
+    cursor: pointer;
+    line-height: 1;
+}
+.toast.info { border-left: 4px solid #3b82f6; }
+.toast.success { border-left: 4px solid #16a34a; }
+.toast.error { border-left: 4px solid #dc2626; }
+
+@keyframes toast-in { from { transform: translateY(8px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+.toast-hide { animation: toast-out 180ms ease-in forwards; }
+@keyframes toast-out { to { transform: translateY(8px); opacity: 0; } }
+
+/* Dark theme toasts */
+body.theme-dark .toast {
+    background: #0f172a;
+    color: #e5e7eb;
+    border-color: #1f2937;
+}

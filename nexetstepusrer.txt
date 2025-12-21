@@ -1,0 +1,50 @@
+NEXT STEPS (Admin & User Accounts)
+note: don't use css inline style
+
+How to use:
+- Tell me the Step ID (e.g., AU1) and I will implement it next.
+- If you want changes, say the Step ID + your note.
+
+AU1 — Account security & profile enhancements (admin + user)
+- Files: server.js, src/routes/authRoutes.js, src/middleware/auth.js, Public/html/settings.html, Public/js/utils/auth-utils.js, Public/js/utils/settings.js
+- Result: 
+  - Optional 2FA (TOTP) during login with backup codes
+  - Session/device management (list and revoke active sessions)
+  - Password change flow with strong policy and breach check
+  - Profile info update (name, avatar) with validation
+  - Admin can force logout or reset 2FA for a user
+
+AU2 — Email verification + improved password reset
+- Files: src/routes/authRoutes.js, src/controllers/authController.js, new src/utils/mailer.js, Public/html/login/index.html, Public/html/register/index.html
+- Result:
+  - Verify email on registration via signed link
+  - Resend verification flow
+  - Password reset with short-lived signed tokens and confirmation UI
+
+AU3 — WebAuthn (Passkeys) for passwordless/strong 2FA
+- Files: server.js, new src/routes/webauthnRoutes.js, Public/js/utils/webauthn.js, Public/html/settings.html
+- Result:
+  - Register platform authenticator (Face/Touch ID)
+  - Login with passkey or use as second factor
+
+AU4 — Admin user management UI (roles, suspend, reset)
+- Files: new Public/html/admin/users.html, new Public/js/admin/users.js, src/routes/authRoutes.js (admin endpoints)
+- Result:
+  - List/search users, change roles, suspend/reactivate
+  - Force password reset/2FA reset, revoke sessions per user
+
+AU5 — Account activity & login alerts
+- Files: src/middleware/audit.js, src/routes/authRoutes.js, new src/utils/notify.js, Public/html/settings.html
+- Result:
+  - Show recent account events (logins, 2FA changes)
+  - Optional email alert on new device/location
+
+AU6 — Account export/delete (privacy tools)
+- Files: src/routes/authRoutes.js, src/controllers/authController.js
+- Result:
+  - User can export their account data (JSON)
+  - Admin/user-initiated account deletion with grace period
+
+Tell me which Step ID to start with.
+
+

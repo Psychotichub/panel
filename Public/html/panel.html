@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/panel.css">
+    <!-- Include security utils first -->
+    <script src="/js/utils/security-utils.js"></script>
+    <script src="/js/utils/auth-utils.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <h1>Panel</h1>
+    <div id="content">
+        <!-- Panel Data Entry Table -->
+        <div id="material-form">
+            <table>
+                <tr>
+                    <td>
+                        <div>
+                        <input type="text" name="panel-name" id="panel-name" placeholder="Enter panel name" autocomplete="on">
+                        <div id="panel-dropdown" class="dropdown hidden"></div>
+                        <datalist id="panel-list">
+                            <!-- Options will be populated dynamically -->
+                        </datalist>
+                    </td>
+                    <td>
+                        <input type="text" name="circuit" id="circuit" placeholder="Enter circuit name" autocomplete="on">
+                        <div id="circuit-dropdown" class="dropdown hidden"></div>
+                        <datalist id="circuit-list">
+                            <!-- Options will be populated dynamically -->
+                        </datalist>
+                    </div>
+                    </td>
+                </tr>
+            </table>
+            <button type="button" id="submit-btn">Submit</button>
+        </div>
+
+        <h3>Search Panel:</h3>
+        <form id="search-form">
+            <input type="text" name="search-panel-name" id="search-panel-name" placeholder="Enter panel name to search" autocomplete="off">
+            <div id="search-dropdown" class="dropdown hidden"></div>
+        </form>
+
+        <!-- Submitted Data Table -->
+        <h3>Submitted Data:</h3>
+        <table id="submitted-table" class="hidden">
+            <thead>
+                <tr>
+                    <th>Panel Name</th>
+                    <th>Circuit</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="submitted-table-body">
+            </tbody>
+        </table>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="/js/utils/header.js"></script>
+    <script src="/js/utils/footer.js"></script>
+    <script src="/js/panel.js"></script>
+</body>
+</html>

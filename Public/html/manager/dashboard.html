@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Dashboard</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/manager.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="/js/vendor/xlsx.full.min.js"></script>
+    <script src="/js/vendor/chart.umd.min.js"></script>
+</head>
+<body>
+    <a href="#mainContent" class="skip-link">Skip to main content</a>
+    <div class="manager-dashboard">
+        <!-- Header -->
+        <header class="manager-header" role="banner">
+            <div class="manager-header-content">
+                <h1><i class="fas fa-chart-line"></i> Manager Dashboard</h1>
+                <div class="manager-user-info">
+                    <span id="currentUser">Loading...</span>
+                    <button id="headerCreateUserBtn" class="manager-header-btn" title="Create a new user or admin">
+                        <i class="fas fa-user-plus"></i> Create User
+                    </button>
+                    <button id="themeToggleBtn" class="manager-header-btn" aria-pressed="false" title="Toggle dark mode">
+                        <i id="themeToggleIcon" class="fas fa-moon"></i>
+                    </button>
+                    <button id="shortcutsBtn" class="manager-header-btn" title="Keyboard shortcuts (Shift+/)">
+                        <i class="fas fa-question-circle"></i> Shortcuts
+                    </button>
+                    <button id="logoutBtn" class="manager-logout-btn">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="manager-panel" id="mainContent" role="main">
+            <!-- Selection Controls -->
+            <div class="manager-controls">
+                <div class="manager-control-group">
+                    <label for="siteSelect">
+                        <i class="fas fa-building"></i> Select Site:
+                    </label>
+                    <select id="siteSelect" required>
+                        <option value="">Select a site...</option>
+                    </select>
+                </div>
+
+                <div class="manager-control-group">
+                    <label for="companySelect">
+                        <i class="fas fa-industry"></i> Select Company:
+                    </label>
+                    <select id="companySelect" required>
+                        <option value="">Select a company...</option>
+                    </select>
+                </div>
+
+                <div class="manager-control-group">
+                    <label for="startDate">
+                        <i class="fas fa-calendar"></i> Start Date:
+                    </label>
+                    <input type="date" id="startDate" required>
+                </div>
+
+                <div class="manager-control-group">
+                    <label for="endDate">
+                        <i class="fas fa-calendar"></i> End Date:
+                    </label>
+                    <input type="date" id="endDate" required>
+                </div>
+
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="manager-action-buttons">
+                <button id="fetchBtn" class="manager-btn manager-btn-primary">
+                    <i class="fas fa-search"></i> Calculate Total Prices
+                </button>
+                <button id="exportBtn" class="manager-btn manager-btn-success" disabled>
+                    <i class="fas fa-file-excel"></i> Export to Excel
+                </button>
+                <button id="clearBtn" class="manager-btn manager-btn-secondary">
+                    <i class="fas fa-trash"></i> Clear Results
+                </button>
+                <button id="createUserBtn" class="manager-btn manager-btn-success">
+                    <i class="fas fa-user-plus"></i> Create User
+                </button>
+            </div>
+
+            <!-- Statistics Panel -->
+            <div class="manager-stats">
+                <div class="manager-stat-card" title="Click to view materials">
+                    <div class="manager-stat-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <div class="manager-stat-number" id="totalUsers">0</div>
+                    <div class="manager-stat-label">Total Materials</div>
+                </div>
+                <div class="manager-stat-card">
+                    <div class="manager-stat-icon">
+                        <i class="fas fa-list"></i>
+                    </div>
+                    <div class="manager-stat-number" id="totalPrices">0</div>
+                    <div class="manager-stat-label">Total Records</div>
+                </div>
+                <div class="manager-stat-card">
+                    <div class="manager-stat-icon">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                    <div class="manager-stat-number" id="totalAmount">$0</div>
+                    <div class="manager-stat-label">Grand Total</div>
+                </div>
+                <div class="manager-stat-card">
+                    <div class="manager-stat-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="manager-stat-number" id="selectedSite">-</div>
+                    <div class="manager-stat-label">Selected Site</div>
+                </div>
+            </div>
+
+            <!-- Charts Panel -->
+            <div class="manager-results">
+                <h3><i class="fas fa-chart-pie"></i> Summary Charts</h3>
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h4>Cost Breakdown</h4>
+                        <canvas id="costBreakdownChart" width="400" height="280" aria-label="Cost breakdown chart" role="img"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h4>Totals Over Period</h4>
+                        <canvas id="totalsOverTimeChart" width="400" height="280" aria-label="Totals over period chart" role="img"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Table -->
+            <div class="manager-results">
+                <h3><i class="fas fa-table"></i> Calculated Total Prices</h3>
+                <div class="table-container">
+                    <table id="totalPriceTable" class="manager-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Material</th>
+                                <th scope="col">Total Quantity</th>
+                                <th scope="col">Material Cost</th>
+                                <th scope="col">Labor Cost</th>
+                                <th scope="col">Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody id="totalPriceTableBody">
+                            <tr>
+                                <td colspan="6" class="no-data">
+                                    No calculated data available. Select a site and date range to calculate total prices.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="manager-pagination" aria-label="Table pagination">
+                        <button type="button" id="prevPageBtn" class="manager-page-btn" aria-label="Previous page">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span id="pageInfo" class="manager-page-info">Page 1 of 1</span>
+                        <button type="button" id="nextPageBtn" class="manager-page-btn" aria-label="Next page">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                        <span class="manager-page-size">Page size: 25</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Logs -->
+            <div class="manager-results">
+                <h3><i class="fas fa-clipboard-list"></i> Activity Logs</h3>
+                <div class="table-container">
+                    <table id="activityLogsTable" class="manager-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Time</th>
+                                <th scope="col">User</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Action</th>
+                                <th scope="col">Resource</th>
+                                <th scope="col">Material</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activityLogsTableBody">
+                            <tr>
+                                <td colspan="7" class="no-data">
+                                    No logs loaded. Calculate or change filters to refresh.
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="manager-loading">
+        <div class="manager-spinner"></div>
+        <p>Calculating total prices...</p>
+    </div>
+
+    <!-- Shortcuts Overlay -->
+    <div id="shortcutsOverlay" class="shortcuts-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="shortcutsTitle">
+        <div class="shortcuts-modal">
+            <div class="shortcuts-header">
+                <h2 id="shortcutsTitle" class="shortcuts-title"><i class="fas fa-keyboard"></i> Keyboard Shortcuts</h2>
+                <button id="shortcutsCloseBtn" class="shortcuts-close-btn" aria-label="Close shortcuts">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="shortcuts-body">
+                <ul class="shortcuts-list">
+                    <li><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>Enter</kbd> — Calculate Total Prices</li>
+                    <li><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>E</kbd> — Export to Excel</li>
+                    <li><kbd>Ctrl</kbd>/<kbd>Cmd</kbd> + <kbd>R</kbd> — Clear Results</li>
+                    <li><kbd>Shift</kbd> + <kbd>/</kbd> (<kbd>?</kbd>) — Toggle this help</li>
+                    <li>Click "Total Materials" card — Open materials list</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/utils/toast.js"></script>
+    <script src="/js/manager/site-totalprice.js"></script>
+</body>
+</html> 
