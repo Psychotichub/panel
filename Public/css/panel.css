@@ -269,6 +269,61 @@ button:focus {
   display: none !important;
 }
 
+/* Filter Container Styles */
+#table-filter-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border-color);
+}
+
+.filter-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-color);
+  white-space: nowrap;
+  margin: 0;
+}
+
+.filter-select {
+  width: auto;
+  min-width: 200px;
+  max-width: 300px;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.375rem;
+  font-size: 1rem;
+  background-color: white;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23333' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  padding-right: 2.5rem;
+}
+
+.filter-select:hover {
+  border-color: var(--secondary-color);
+}
+
+.filter-select:focus {
+  outline: none;
+  border-color: #f8190d;
+  box-shadow: 0 0 0 3px rgba(248, 25, 13, 0.1);
+}
+
+.filter-select option {
+  padding: 0.5rem;
+  background-color: white;
+  color: var(--text-color);
+}
+
 @media (max-width: 1024px) {
     body {
         margin: 100px 0 50px;
@@ -300,6 +355,18 @@ button:focus {
 
     #search-panel-name {
         width: 50%;
+    }
+
+    #table-filter-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+        padding: 0.75rem;
+    }
+
+    .filter-select {
+        width: 100%;
+        max-width: 100%;
     }
 }
 
@@ -378,6 +445,25 @@ button:focus {
         width: 70%;
     }
 
+    #table-filter-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+    }
+
+    .filter-label {
+        font-size: 0.9rem;
+    }
+
+    .filter-select {
+        width: 100%;
+        max-width: 100%;
+        padding: 0.6rem 2.25rem 0.6rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
     #search-dropdown {
         width: 70%;
         font-size: 0.85rem;
@@ -454,6 +540,20 @@ button:focus {
         width: 100%;
     }
 
+    #table-filter-container {
+        padding: 0.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .filter-label {
+        font-size: 0.85rem;
+    }
+
+    .filter-select {
+        padding: 0.5rem 2rem 0.5rem 0.6rem;
+        font-size: 0.85rem;
+    }
+
     #search-dropdown {
         width: 100%;
         font-size: 0.75rem;
@@ -499,5 +599,19 @@ button:focus {
         padding: 4px 2px;
         font-size: 0.65rem;
         min-width: 50px;
+    }
+
+    #table-filter-container {
+        padding: 0.4rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .filter-label {
+        font-size: 0.8rem;
+    }
+
+    .filter-select {
+        padding: 0.4rem 1.75rem 0.4rem 0.5rem;
+        font-size: 0.8rem;
     }
 }
