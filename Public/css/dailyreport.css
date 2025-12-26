@@ -1,0 +1,686 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+body {
+    margin: 80px 0 20px;
+    display: flex;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9fafb;
+    color: #333;
+    line-height: 1.6;
+    padding: 3rem;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.7rem;
+    color: #3498db;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.date-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;;
+}
+.date-container label {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-right: 10px;
+    color: #555;
+}
+
+.date-container input[type="date"], input[type="text"], input[type="number"] {
+    flex: 1;
+    padding: 12px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 5px;
+    width: 70%;
+    transition: border 0.3s, box-shadow 0.3s;
+    cursor: text;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 8px rgba(0, 68, 204, 0.5);
+}
+
+button {
+    background-color: #fff;
+    font-size: 0.7rem;
+    margin: 20px;
+    align-self: center;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    line-height: fit-content;
+    outline: none;
+    padding: .4rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+#prevButton {
+    background-color: #fff;
+    font-size: 0.7rem;
+    margin: 20px;
+    align-self: center;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    line-height: fit-content;
+    outline: none;
+    padding: .4rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+#nextButton {
+    background-color: #fff;
+    font-size: 0.7rem;
+    margin: 20px;
+    align-self: center;
+    background-image: none;
+    background-position: 0 90%;
+    background-repeat: repeat no-repeat;
+    background-size: 4px 3px;
+    border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+    box-sizing: border-box;
+    color: #41403e;
+    cursor: pointer;
+    display: inline-block;
+    line-height: fit-content;
+    outline: none;
+    padding: .4rem;
+    text-decoration: none;
+    transition: all 235ms ease-in-out;
+    border-bottom-left-radius: 15px 255px;
+    border-bottom-right-radius: 225px 15px;
+    border-top-left-radius: 255px 15px;
+    border-top-right-radius: 15px 225px;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+#prevButton:hover {
+    background-color: #db3434;
+    color: white;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+#nextButton:hover {
+    background-color: #019ce3;
+    color: white;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+button.delete-btn:hover {
+    background-color: red;
+    color: white;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+
+}
+
+button.edit-btn:hover {
+    background-color: #3498db;
+    color: white;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+.save-reoprt:hover {
+    background-color: #00c853;
+    color: white;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+#filter-btn:hover {
+    background-color: #00c853;
+    color: white;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+button.print:hover {
+    background-color: #00c853;
+    color: white;
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+    transform: translate3d(0, 2px, 0);
+}
+
+.button:focus {
+    box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
+}
+#input-table {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+#input-table tr {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #ddd;
+}
+
+#input-table td {
+    padding: 15px;
+    text-align: left;
+    font-weight: 500;
+    vertical-align: middle;
+}
+
+#input-table input[type="text"],
+#input-table input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+#input-table select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: fit-content;
+}
+
+#saved-data-container {
+    width: fit-content;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+#saved-data-container.hidden {
+    display: none;
+}
+
+#saved-date {
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #3498db;
+}
+
+#data-table, #materials-table {
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+#data-table thead, #materials-table thead {
+    background-color: #003366;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+#data-table th, #materials-table th{
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#data-table td, #materials-table td {
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+#data-table tr:nth-child(even), #materials-table tr:nth-child(even) {
+    background-color: #f1f6fb;
+}
+
+#data-table tr:hover, #materials-table tr:hover {
+    background-color: #e6f7ff;
+    transition: background-color 0.3s ease;
+}
+
+#data-table th, #materials-table th {
+    position: sticky;
+    top: 0;
+    background-color: #003366;
+    z-index: 2;
+}
+
+#data-table td:nth-child(1), #materials-table td:nth-child(1) {
+    font-weight: bold;
+}
+
+#data-table td:nth-child(2),
+#data-table td:nth-child(3),
+#data-table td:nth-child(4),
+#materials-table td:nth-child(2),
+#materials-table td:nth-child(3),
+#materials-table td:nth-child(4) {
+    text-align: left;
+    color: #333;
+}
+
+#data-table td:nth-child(5), #materials-table td:nth-child(5) {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+#data-table td, #materials-table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#materials-table.hidden {
+    display: none;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    max-height: 150px;
+    overflow-y: auto;
+    z-index: 1000;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown div {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.dropdown div:hover {
+    background-color: #f0f0f0;
+}
+
+.hidden {
+    display: none;
+}
+
+td {
+    font-size: 0.7rem;
+}
+
+#material-dropdown {
+    padding: 8px 12px;
+    width: fit-content;
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    font-size: 0.8rem;
+    border-bottom: 1px solid #003b00;
+    transition: background-color 0.3s;
+}
+
+#material-dropdown:hover {
+    background-color: #ffffff;
+}
+
+#material-dropdown div:hover {
+    background-color: #ec024c;
+    color: #1976d2;
+}
+
+#material-dropdown div.selected {
+    background-color: #2196f3;
+    color: white;
+    font-weight: bold;
+}
+
+#material-dropdown div:active {
+    background-color: #1976d2;
+    color: white;
+}
+
+
+#material-dropdown:last-child {
+    border-bottom: none;
+}
+
+tr:nth-child(even) {
+    background-color:#f2f2f2;
+}
+
+#materials-table tbody tr:hover {
+    background-color: #ddd;
+    color: #3498db;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    body {
+        margin: 100px 0 50px;
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+        margin-bottom: 15px;
+    }
+
+    .date-container {
+        width: 95%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    #input-table {
+        width: 95%;
+        margin: 15px auto;
+        overflow-x: auto;
+        display: block;
+    }
+
+    #input-table td {
+        padding: 8px;
+        min-width: 120px;
+    }
+
+    #data-table, #materials-table {
+        width: 95%;
+        margin: 15px auto;
+        overflow-x: auto;
+        display: block;
+    }
+
+    #data-table th, #materials-table th,
+    #data-table td, #materials-table td {
+        padding: 8px;
+        font-size: 0.85rem;
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        margin: 120px 0 50px;
+        padding: 0.75rem;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+
+    .date-container {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .date-container label {
+        margin-bottom: 4px;
+        width: 100%;
+        font-size: 0.9rem;
+    }
+
+    .date-container input[type="date"], 
+    input[type="text"], 
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin: 2px 0;
+        font-size: 0.9rem;
+    }
+
+    button {
+        margin: 8px 4px;
+        padding: 8px 12px;
+        max-width: 100%;
+        font-size: 0.8rem;
+        white-space: nowrap;
+    }
+
+    #input-table {
+        width: 100%;
+        margin: 15px auto;
+        font-size: 0.85rem;
+        overflow-x: auto;
+        display: block;
+        border-radius: 8px;
+    }
+
+    #input-table td {
+        padding: 8px 6px;
+        min-width: 100px;
+    }
+
+    #input-table input[type="text"],
+    #input-table input[type="number"],
+    #input-table select {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    #data-table, #materials-table {
+        width: 100%;
+        margin: 15px auto;
+        font-size: 0.8rem;
+        overflow-x: auto;
+        display: block;
+        border-radius: 8px;
+    }
+
+    #data-table th, #materials-table th,
+    #data-table td, #materials-table td {
+        padding: 8px 6px;
+        font-size: 0.8rem;
+        min-width: 80px;
+        white-space: nowrap;
+    }
+
+    #saved-data-container {
+        width: 100%;
+        margin: 15px auto;
+    }
+
+    #material-dropdown {
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.85rem;
+    }
+    
+    .dropdown {
+        width: 100%;
+        max-height: 120px;
+        font-size: 0.85rem;
+    }
+
+    /* Ensure buttons don't overlap */
+    #filter-btn, #prevButton, #nextButton, .print, .export {
+        margin: 5px;
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    /* Stack filter controls vertically on very small screens */
+    @media (max-width: 480px) {
+        #filter-date-label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        #filter-date {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        margin: 140px 0 30px;
+        padding: 0.5rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
+
+    .date-container {
+        width: 100%;
+    }
+
+    .date-container input[type="date"], 
+    input[type="text"], 
+    input[type="number"] {
+        padding: 8px;
+        font-size: 0.85rem;
+    }
+
+    button {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        margin: 4px 2px;
+    }
+
+    #input-table {
+        width: 100%;
+        margin: 10px auto;
+        font-size: 0.75rem;
+    }
+
+    #input-table td {
+        padding: 6px 4px;
+        min-width: 80px;
+    }
+
+    #input-table input[type="text"],
+    #input-table input[type="number"],
+    #input-table select {
+        padding: 6px;
+        font-size: 0.75rem;
+    }
+
+    #data-table, #materials-table {
+        width: 100%;
+        margin: 10px auto;
+        font-size: 0.7rem;
+    }
+
+    #data-table th, #materials-table th,
+    #data-table td, #materials-table td {
+        padding: 6px 4px;
+        font-size: 0.7rem;
+        min-width: 60px;
+    }
+
+    #material-dropdown {
+        font-size: 0.75rem;
+    }
+
+    .dropdown {
+        font-size: 0.75rem;
+        max-height: 100px;
+    }
+
+    /* Hide action buttons on very small screens to save space */
+    #data-table th:last-child, #materials-table th:last-child,
+    #data-table td:last-child, #materials-table td:last-child {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        margin: 120px 0 20px;
+        padding: 0.25rem;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    button {
+        padding: 5px 8px;
+        font-size: 0.7rem;
+        margin: 2px 1px;
+    }
+
+    #input-table td {
+        padding: 4px 2px;
+        min-width: 60px;
+    }
+
+    #data-table th, #materials-table th,
+    #data-table td, #materials-table td {
+        padding: 4px 2px;
+        font-size: 0.65rem;
+        min-width: 50px;
+    }
+}

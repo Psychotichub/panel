@@ -1,0 +1,291 @@
+:root {
+    --primary-color: #007bff;
+    --secondary-color: #3498db;
+    --success-color: #28a745;
+    --success-hover: #218838;
+    --danger-color: #dc3545;
+    --warning-color: #ffc107;
+    --text-color: #2d3748;
+    --background-color: #f8f9fa;
+    --border-color: #e2e8f0;
+    --secondary-btn: #6c757d;
+    --secondary-btn-hover: #5a6268;
+    --manager-color: #667eea;
+    --manager-hover: #764ba2;
+}
+
+body {
+    display: flex;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 1rem;
+    font-size: 1rem;
+    margin: 55px 0;
+    min-height: 100vh;
+}
+
+/* Common Auth Container Styles */
+.auth-container {
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: box-shadow 0.3s ease;
+}
+
+.auth-container:hover {
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.auth-title {
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--secondary-color);
+    font-weight: 600;
+}
+
+/* Form Styles */
+.form-control:focus {
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+}
+
+/* Message Styles */
+.message {
+    margin: 15px 0;
+    padding: 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.error-message {
+    color: var(--danger-color);
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    display: none;
+}
+
+.success-message {
+    color: var(--success-color);
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    display: none;
+}
+
+/* Button Styles */
+.btn {
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-success {
+    background-color: var(--success-color);
+    border-color: var(--success-color);
+}
+
+.btn-success:hover {
+    background-color: var(--success-hover);
+    border-color: var(--success-hover);
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: var(--secondary-btn);
+    border-color: var(--secondary-btn);
+}
+
+.btn-secondary:hover {
+    background-color: var(--secondary-btn-hover);
+    border-color: #545b62;
+    transform: translateY(-2px);
+}
+
+/* Login Specific Styles */
+.login-container {
+    max-width: 400px;
+}
+
+.register-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 0.95rem;
+}
+
+.register-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Manager Login Link Styles */
+.manager-login-link {
+    margin-top: 15px;
+    padding: 12px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+    border-radius: 8px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    transition: all 0.3s ease;
+}
+
+.manager-login-link:hover {
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+    border-color: rgba(102, 126, 234, 0.3);
+    transform: translateY(-1px);
+}
+
+.manager-login-link i {
+    color: var(--manager-color);
+    margin-right: 8px;
+    font-size: 1.1rem;
+}
+
+.manager-link {
+    color: var(--manager-color) !important;
+    font-weight: 600 !important;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.manager-link:hover {
+    color: var(--manager-hover) !important;
+    text-decoration: none;
+}
+
+/* Register Specific Styles */
+.admin-note {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    padding: 12px;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.admin-note:hover {
+    background-color: #ffe7b1;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    body {
+        padding: 0.75rem;
+        margin: 50px 0;
+    }
+
+    .auth-container {
+        max-width: 450px;
+        margin: 60px auto;
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 0.5rem;
+        margin: 40px 0;
+    }
+
+    .auth-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+    }
+
+    .auth-title {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+    }
+
+    .btn {
+        padding: 10px 12px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    body {
+        padding: 0.25rem;
+        margin: 30px 0;
+    }
+
+    .auth-container {
+        margin: 30px auto;
+        padding: 15px;
+        max-width: 95%;
+    }
+    
+    .auth-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+    
+    .btn {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    .register-link {
+        font-size: 0.9rem;
+    }
+
+    .admin-note {
+        font-size: 0.85rem;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        padding: 0.1rem;
+        margin: 20px 0;
+    }
+
+    .auth-container {
+        margin: 20px auto;
+        padding: 12px;
+        max-width: 98%;
+    }
+
+    .auth-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+
+    .btn {
+        padding: 6px 10px;
+        font-size: 0.85rem;
+    }
+
+    .register-link {
+        font-size: 0.85rem;
+    }
+
+    .admin-note {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+} 

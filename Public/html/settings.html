@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Company & Site Details</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/settings.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1><i class="fas fa-cog"></i> Settings</h1>
+                <nav class="nav-menu">
+                    <a href="/index" class="nav-link"><i class="fas fa-home"></i> Home</a>
+                    <button id="logoutBtn" class="nav-link logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- User Info Section -->
+            <section class="user-info-section">
+                <div class="card">
+                    <h2><i class="fas fa-user"></i> User Information</h2>
+                    <div id="userInfo" class="user-info">
+                        <div class="loading">Loading user information...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Site Statistics Section (for all users) -->
+            <section class="site-stats-section">
+                <div class="card">
+                    <h2><i class="fas fa-chart-bar"></i> Site Statistics</h2>
+                    <div id="siteStats" class="site-stats">
+                        <div class="loading">Loading site statistics...</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Modal -->
+    <div id="loadingModal" class="modal">
+        <div class="modal-content">
+            <div class="loading-spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <script src="/js/utils/settings.js"></script>
+</body>
+</html> 

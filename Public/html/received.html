@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Received Materials</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/received.css">
+    <!-- Include security and auth utils first -->
+    <script src="/js/utils/security-utils.js"></script>
+    <script src="/js/utils/auth-utils.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <h1>Received Materials</h1>
+
+    <!-- Input Data Section -->
+    <div id="date-container">
+        <label for="date">Select Date: </label>
+        <input type="date" id="date" name="date">
+    </div>
+
+    <!-- Input Data Table -->
+    <table id="input-table">
+        <tr>
+            <td>
+                <input type="text" id="material-name" name="material-name" placeholder="Name of materials" autocomplete="off">
+                <div id="material-dropdown" class="dropdown hidden"></div>
+                <datalist id="material-list">
+                    <!-- Predefined or dynamic material names will go here -->
+                </datalist>
+            </td>
+
+            <td><input type="number" id="quantity" name="quantity" placeholder="Quantity"></td>
+            <td><input type="text" id="notes" name="notes" placeholder="Notes"></td>
+            <td><button type="button" class="save-reoprt">Save</button></td>
+        </tr>
+    </table>
+
+    <!-- Data Display Table -->
+    <div id="saved-data-container" class="hidden">
+        <div id="saved-date"></div> <!-- Display selected date here -->
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>Materials</th>
+                    <th>Quantity</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button type="button" class="send-data hidden">Send Data</button>
+    </div>
+
+    <div>
+    <label for="filter-date">Select Date:</label>
+    <input type="date" id="filter-date" />
+    <button type="button" id="filter-btn">CLick for Report</button>
+    <table id="materials-table" class="materials-table hidden">
+        <thead>
+            <tr>
+                <th>Material Name</th>
+                <th>Quantity</th>
+                <th>Notes</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <button type="button" class="print hidden">Print</button>
+    <button type="button" class="pdf hidden">Export</button>
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="/js/utils/header.js"></script>
+    <script src="/js/utils/footer.js"></script>
+    <script src="/js/received.js"></script>
+</body>
+</html>

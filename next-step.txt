@@ -1,0 +1,47 @@
+NEXT STEPS CHECKLIST
+note: don't use css inline style
+
+How to use:
+- Tell me the Step ID (e.g., S3) and I will implement it next.
+- If you want changes, say the Step ID + your note.
+
+ Result: Checkbox that stores token in sessionStorage by default; localStorage only if checked; no redirect loops.
+
+S11 — PWA + Offline caching (installable app)
+- Files: Public/html/*, Public/js/*.js, Public/js/utils/*, new Public/manifest.webmanifest, new Public/js/service-worker.js, server.js static headers
+- Result: App is installable (Add to Home Screen); key routes and assets cached offline (login excluded); background sync queues failed POSTs for retry.
+
+S12 — Accessibility pass (WCAG + keyboard nav)
+- Files: Public/html/*, Public/css/*
+- Result: Proper ARIA labels/roles, logical tab order, visible focus states, skip-to-content, contrast fixes, basic axe tests.
+
+S13 — Security hardening (rate-limit + headers)
+- Files: server.js, src/middleware/* (new rateLimiter), src/routes/authRoutes.js
+- Result: Helmet strict config, CORS tightening, express-rate-limit for auth/data endpoints, brute force protection, safer error messages.
+
+S14 — Centralized logging & monitoring
+- Files: server.js, src/middleware/audit.js, new src/utils/logger.js
+- Result: Structured logs (winston/pino), request/response correlation IDs, error tracking hook (optional Sentry), production log rotation.
+
+S15 — Saved presets for reports
+- Files: Public/html/manager/dashboard.html (UI), Public/js/manager/site-totalprice.js, src/routes/managerRoutes.js
+- Result: Save/load named filter presets per user; quick switch between frequent site/company/date ranges.
+
+S16 — Dockerized dev/prod setup
+- Files: Dockerfile, docker-compose.yml, README.md, .env.example
+- Result: One-command local spin-up (app + Mongo), reproducible prod images, documented env vars and healthchecks.
+
+S17 — Internationalization (i18n)
+- Files: Public/js/utils/i18n.js, string extraction in Public/html/* & Public/js/*, language JSON files
+- Result: Language switcher with at least EN + one additional language; strings externalized and switch persists.
+
+Optional quick wins
+- QW1: Keyboard shortcuts help tooltip on dashboard
+- QW2: Dark mode toggle
+- QW3: Role badges and avatar on header
+- QW4: Toast notifications (non-blocking, auto-dismiss)
+- QW5: Loading states on critical buttons (disable + spinner)
+- QW6: Copy-to-clipboard on table cells/rows (material names, totals)
+- QW7: Remember last used site/company/date on dashboard load
+
+Tell me which Step ID to start with.

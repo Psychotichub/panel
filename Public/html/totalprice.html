@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Total Price</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/totalprice.css">
+    <!-- Include security and auth utils first -->
+    <script src="/js/utils/security-utils.js"></script>
+    <script src="/js/utils/auth-utils.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+    <h1>Total Price Report</h1>
+    <h3>Select Date Range </h3>
+    <div id="date-container">
+        <label for="startDateInput">Start Date:</label>
+        <input type="date" id="startDateInput">
+        <label for="endDateInput">End Date:</label>
+        <input type="date" id="endDateInput">
+        <button type="button" id="fetchButton">Show Data From Selected Dates</button>
+    </div>
+    <h3>Filter By:</h3>
+    <div id="filter-container">
+        <div id="location-container">
+            <label for="location">Location:</label>
+            <select id="location" name="location" aria-label="Location">
+                <option value="">All Locations</option>
+                <option value="Subsol">Subsol</option>
+                <option value="Parter">Parter</option>
+                <option value="E1">E1</option>
+                <option value="E2">E2</option>
+                <option value="E3">E3</option>
+                <option value="E4">E4</option>
+                <option value="E5">E5</option>
+                <option value="Exterior">Exterior</option>
+                <option value="Scara">Scara</option>
+            </select>
+        </div>
+        <div id="panel-container">
+            <label for="panel-name">Panel:</label>
+            <input type="text" name="panel-name" id="panel-name" placeholder="Enter panel name" autocomplete="off">
+            <div id="panel-dropdown" class="dropdown hidden"></div>
+            <datalist id="panel-list">
+                <!-- Options will be populated dynamically -->
+            </datalist>
+        </div>
+    </div>
+    <div id="content" class="hidden">
+        <div id="selected-date-range"></div>
+        <table id="totalprice-table">
+            <thead>
+                <tr>
+                    <th>Material Name</th>
+                    <th>Quantity</th>
+                    <th>Material Price</th>
+                    <th>Labor Price</th>
+                    <th>Total Price</th>
+                </tr>
+
+            </thead>
+            <tbody id="materialsTableBody">
+                <!-- Dynamically populated rows go here -->
+            </tbody>
+        </table>
+    </div>
+    <div id="export" class="hidden">
+        <h4 id="note">*Note:Make sure that Date Range is correct before Save</h4>
+        <button type="submit" id="save">Save</button>
+
+    </div>
+    <div id="footer-placeholder"></div>
+    <script src="/js/utils/header.js"></script>
+    <script src="/js/utils/footer.js"></script>
+    <script src="/js/totalprice.js"></script>
+</body>
+</html>

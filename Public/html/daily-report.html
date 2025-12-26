@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Report</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/dailyreport.css">
+    <!-- Include security and auth utils first -->
+    <script src="/js/utils/security-utils.js"></script>
+    <script src="/js/utils/auth-utils.js"></script>
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <h1> Daily Report</h1>
+
+    <!-- Input Data Section -->
+    <div id="date-container">
+        <label for="date" id="date-label">Select Date: </label>
+        <input type="date" id="date" name="date">
+    </div>
+
+    <!-- Input Data Table -->
+    <table id="input-table">
+        <tr>
+            <td>
+                <input type="text" id="material-name" name="material-name"  placeholder="Name of materials"  autocomplete="off">
+                <div id="material-dropdown" class="dropdown hidden"></div>
+                <datalist id="material-list">
+                    <!-- Predefined or dynamic material names will go here -->
+                </datalist>
+            </td>
+
+            <td><input type="number" id="quantity" name="quantity" placeholder="Quantity"></td>
+            <td><select id="location" name="location" title="Location">
+                <option value="choose-location" selected disabled hidden>Location</option>
+                <option value="Subsol">Subsol</option>
+                <option value="Parter">Parter</option>
+                <option value="E1">E1</option>
+                <option value="E2">E2</option>
+                <option value="E3">E3</option>
+                <option value="E4">E4</option>
+                <option value="E5">E5</option>
+                <option value="Exterior">Exterior</option>
+                <option value="Scara">Scara</option>
+            </td>
+            <td>
+                <input type="text" id="panel-name" name="panel-name"  placeholder="Panel"  autocomplete="off">
+                <div id="panel-dropdown" class="dropdown hidden"></div>
+                <datalist id="panel-list">
+                    <!-- Predefined or dynamic panel names will go here -->
+                </datalist>
+            </td>
+            <td>
+                <input type="text" id="circuit" name="circuit"  placeholder="circuit"  autocomplete="off">
+                <div id="circuit-dropdown" class="dropdown hidden"></div>
+                <datalist id="circuit-list">
+                    <!-- Predefined or dynamic circuit names will go here -->
+                </datalist>
+            </td>
+            <td><input type="text" id="notes" name="notes" placeholder="Notes"></td>
+            <td><button type="submit" class="save-reoprt">Save</button></td>
+        </tr>
+    </table>
+
+    <!-- Data Display Table -->
+    <div id="saved-data-container" class="hidden">
+        <div id="saved-date"></div> <!-- Display selected date here -->
+        <table id="data-table">
+            <thead>
+                <tr>
+                    <th>Materials</th>
+                    <th>Quantity</th>
+                    <th>Location</th>
+                    <th>Panel</th>
+                    <th>Circuit</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button type="button" class="send-data hidden">Send Data</button>
+    </div>
+
+    <div>
+        <label for="filter-date" id="filter-date-label">Select Date:</label>
+        <input type="date" id="filter-date" />
+        <button type="button" id="filter-btn">Get Report</button>
+        <button type="button" id="prevButton" class="hidden">&larr;</button>
+        <button type="button" id="nextButton" class="hidden">&rarr;</button>
+            <table id="materials-table" class="hidden">
+                <thead>
+                    <tr>
+                        <th>Material Name</th>
+                        <th>Quantity</th>
+                        <th>Location</th>
+                        <th>Panel</th>
+                        <th>Circuit</th>
+                        <th>Notes</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                </table>
+        <button type="button" class="print hidden">Print</button>
+        <button type="button" class="export hidden">Export</button> <!-- for excel -->
+    </div>
+
+    <div id="footer-placeholder"></div>
+    <script src="/js/xlsx.full.min.js"></script>
+    <script src="/js/utils/header.js"></script>
+    <script src="/js/utils/footer.js"></script>
+    <script src="/js/daily-report.js?v=2.0"></script>
+</body>
+</html>
